@@ -21,52 +21,54 @@
   --shadow: 0 10px 30px rgba(0,0,0,0.08);
   --transition: all 0.3s ease;
 }
-*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e4edf5 100%);min-height:100vh;display:flex;justify-content:center;align-items:center;padding:16px;color:var(--dark);line-height:1.5}
-.card{background:white;width:100%;max-width:500px;border-radius:var(--border-radius);box-shadow:var(--shadow);overflow:hidden;position:relative;border:1px solid rgba(255,255,255,0.2)}
-.header{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:white;padding:28px 24px;text-align:center;position:relative;overflow:hidden}
-.header-icon{width:70px;height:70px;background:rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:30px;backdrop-filter:blur(5px);border:2px solid rgba(255,255,255,0.2)}
-.header h1{font-size:26px;font-weight:700;margin-bottom:8px;letter-spacing:-0.5px}
-.header p{font-size:15px;opacity:0.9;font-weight:400}
-.content{padding:24px}
-.input-section{margin-bottom:28px}
-.input-label{display:block;margin-bottom:10px;font-weight:600;color:var(--dark);font-size:16px;display:flex;align-items:center;gap:8px}
-.input-label i{color:var(--primary)}
-.code-input-container{position:relative;margin-bottom:10px}
-.code-input{width:100%;padding:20px 20px 20px 55px;border:2px solid #e2e8f0;border-radius:14px;font-size:20px;font-weight:600;letter-spacing:4px;transition:var(--transition);outline:none;background:white;color:var(--dark)}
-.code-input:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(67,97,238,0.1)}
-.code-input::placeholder{letter-spacing:normal;font-weight:normal;color:#a0aec0;font-size:17px}
-.code-input-icon{position:absolute;left:20px;top:50%;transform:translateY(-50%);color:var(--gray);font-size:20px}
-.input-hint{font-size:13px;color:var(--gray);margin-top:8px;padding-left:5px}
-.submit-btn{width:100%;padding:20px;background:linear-gradient(to right,var(--primary),var(--primary-dark));color:white;border:none;border-radius:14px;font-size:18px;font-weight:600;cursor:pointer;transition:var(--transition);display:flex;justify-content:center;align-items:center;gap:12px;box-shadow:0 6px 20px rgba(67,97,238,0.25);margin-top:5px}
-.submit-btn:hover{background:linear-gradient(to right,var(--primary-dark),#2d46c9)}
-.loader-container{display:none;text-align:center;padding:30px 0;flex-direction:column;align-items:center;gap:15px}
-.loader{width:60px;height:60px;border:4px solid rgba(67,97,238,0.1);border-radius:50%;border-top-color:var(--primary);animation:spin 1s ease-in-out infinite}
-@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
-.error-container{display:none;background:linear-gradient(to right,#fff5f7,#fff);border:1px solid rgba(239,71,111,0.2);border-radius:14px;padding:20px;text-align:center;margin-top:20px;animation:fadeIn 0.3s ease-out}
-.error-icon{width:60px;height:60px;background:rgba(239,71,111,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 15px;color:var(--error);font-size:24px}
-.result-container{display:none;margin-top:25px;animation:fadeIn 0.4s ease-out}
-.results-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(50px,1fr));gap:10px;margin-bottom:25px;max-height:300px;overflow-y:auto;padding:5px}
-.result-item{background:var(--light);border-radius:12px;padding:14px 8px;text-align:center;transition:var(--transition);position:relative;cursor:default;border:2px solid transparent}
-.result-item.correct{background:rgba(6,214,160,0.1);border-color:rgba(6,214,160,0.3)}
-.result-item.wrong{background:rgba(239,71,111,0.1);border-color:rgba(239,71,111,0.3)}
-.result-item.pending{background:rgba(255,193,7,0.1);border-color:rgba(255,193,7,0.3)}
-.question-number{font-weight:700;font-size:15px;margin-bottom:8px;color:var(--dark)}
-.result-icon{font-size:18px}
-.stats-container{background:linear-gradient(135deg,#f8fafc 0%,#f1f5f9 100%);border-radius:14px;padding:22px;border:1px solid #e2e8f0}
-.stats-title{font-size:17px;font-weight:600;margin-bottom:18px;color:var(--dark);display:flex;align-items:center;gap:10px}
-.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
-.stat-item{background:white;border-radius:12px;padding:18px 15px;text-align:center;box-shadow:0 4px 10px rgba(0,0,0,0.03);border:1px solid #edf2f7}
-.stat-value{font-size:28px;font-weight:700;margin-bottom:5px}
-.stat-value.correct{color:var(--success)}
-.stat-value.wrong{color:var(--error)}
-.stat-value.pending{color:#d97706}
-.stat-label{font-size:14px;color:var(--gray);font-weight:500}
-.final-score{background:white;border-radius:12px;padding:20px;margin-top:20px;text-align:center;border:2px solid var(--primary);box-shadow:0 6px 15px rgba(67,97,238,0.1)}
-.final-score-label{font-size:15px;color:var(--gray);margin-bottom:8px;font-weight:500}
-.final-score-value{font-size:36px;font-weight:800;color:var(--primary);line-height:1}
-.final-score-total{font-size:18px;color:var(--gray);font-weight:500}
-.footer{text-align:center;padding:20px 24px;color:var(--gray);font-size:14px;border-top:1px solid #f1f5f9;background:#fafbfd}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#f5f7fa 0%,#e4edf5 100%);min-height:100vh;display:flex;justify-content:center;align-items:center;padding:16px;color:var(--dark);line-height:1.5;}
+
+.card{background:white;width:100%;max-width:500px;border-radius:var(--border-radius);box-shadow:var(--shadow);overflow:hidden;border:1px solid rgba(255,255,255,0.2);}
+.header{background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:white;padding:28px 24px;text-align:center;position:relative;}
+.header-icon{width:70px;height:70px;background:rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:30px;backdrop-filter:blur(5px);border:2px solid rgba(255,255,255,0.2);}
+.header h1{font-size:26px;font-weight:700;margin-bottom:8px;letter-spacing:-0.5px;}
+.header p{font-size:15px;opacity:0.9;font-weight:400;}
+.content{padding:24px;}
+.input-section{margin-bottom:28px;}
+.input-label{display:block;margin-bottom:10px;font-weight:600;color:var(--dark);font-size:16px;display:flex;align-items:center;gap:8px;}
+.input-label i{color:var(--primary);}
+.code-input-container{position:relative;margin-bottom:10px;}
+.code-input{width:100%;padding:20px 20px 20px 55px;border:2px solid #e2e8f0;border-radius:14px;font-size:20px;font-weight:600;letter-spacing:4px;transition:var(--transition);outline:none;background:white;color:var(--dark);}
+.code-input:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(67,97,238,0.1);}
+.code-input::placeholder{letter-spacing:normal;font-weight:normal;color:#a0aec0;font-size:17px;}
+.code-input-icon{position:absolute;left:20px;top:50%;transform:translateY(-50%);color:var(--gray);font-size:20px;}
+.input-hint{font-size:13px;color:var(--gray);margin-top:8px;padding-left:5px;}
+.submit-btn{width:100%;padding:20px;background:linear-gradient(to right,var(--primary),var(--primary-dark));color:white;border:none;border-radius:14px;font-size:18px;font-weight:600;cursor:pointer;transition:var(--transition);display:flex;justify-content:center;align-items:center;gap:12px;box-shadow:0 6px 20px rgba(67,97,238,0.25);margin-top:5px;}
+.submit-btn:hover{background:linear-gradient(to right,var(--primary-dark),#2d46c9);}
+.loader-container{display:none;text-align:center;padding:30px 0;flex-direction:column;align-items:center;gap:15px;}
+.loader{width:60px;height:60px;border:4px solid rgba(67,97,238,0.1);border-radius:50%;border-top-color:var(--primary);animation:spin 1s linear infinite;}
+@keyframes spin{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+.error-container{display:none;background:linear-gradient(to right,#fff5f7,#fff);border:1px solid rgba(239,71,111,0.2);border-radius:14px;padding:20px;text-align:center;margin-top:20px;}
+.error-icon{width:60px;height:60px;background:rgba(239,71,111,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 15px;color:var(--error);font-size:24px;}
+.result-container{display:none;margin-top:25px;}
+.results-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(50px,1fr));gap:10px;margin-bottom:25px;max-height:300px;overflow-y:auto;padding:5px;}
+.result-item{background:var(--light);border-radius:12px;padding:14px 8px;text-align:center;transition:var(--transition);position:relative;cursor:default;border:2px solid transparent;}
+.result-item.correct{background:rgba(6,214,160,0.1);border-color:rgba(6,214,160,0.3);}
+.result-item.wrong{background:rgba(239,71,111,0.1);border-color:rgba(239,71,111,0.3);}
+.result-item.pending{background:rgba(255,193,7,0.1);border-color:rgba(255,193,7,0.3);}
+.question-number{font-weight:700;font-size:15px;margin-bottom:8px;color:var(--dark);}
+.result-icon{font-size:18px;}
+.stats-container{background:linear-gradient(135deg,#f8fafc 0%,#f1f5f9 100%);border-radius:14px;padding:22px;border:1px solid #e2e8f0;}
+.stats-title{font-size:17px;font-weight:600;margin-bottom:18px;color:var(--dark);display:flex;align-items:center;gap:10px;}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
+.stat-item{background:white;border-radius:12px;padding:18px 15px;text-align:center;box-shadow:0 4px 10px rgba(0,0,0,0.03);border:1px solid #edf2f7;}
+.stat-value{font-size:28px;font-weight:700;margin-bottom:5px;}
+.stat-value.correct{color:var(--success);}
+.stat-value.wrong{color:var(--error);}
+.stat-value.pending{color:#d97706;}
+.stat-label{font-size:14px;color:var(--gray);font-weight:500;}
+.final-score{background:white;border-radius:12px;padding:20px;margin-top:20px;text-align:center;border:2px solid var(--primary);box-shadow:0 6px 15px rgba(67,97,238,0.1);}
+.final-score-label{font-size:15px;color:var(--gray);margin-bottom:8px;font-weight:500;}
+.final-score-value{font-size:36px;font-weight:800;color:var(--primary);line-height:1;}
+.final-score-total{font-size:18px;color:var(--gray);font-weight:500;}
+.footer{text-align:center;padding:20px 24px;color:var(--gray);font-size:14px;border-top:1px solid #f1f5f9;background:#fafbfd;}
 </style>
 </head>
 <body>
@@ -76,6 +78,7 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#f5f7fa 0%
     <h1>Sınaq Nəticələri</h1>
     <p>Kodu daxil edib nəticələrinizi görün</p>
   </div>
+
   <div class="content">
     <div class="input-section">
       <label class="input-label"><i class="fas fa-key"></i>6 rəqəmli nəticə kodu</label>
@@ -85,23 +88,32 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#f5f7fa 0%
       </div>
       <div class="input-hint"><i class="fas fa-info-circle"></i> Kodunuz sınaq bitdikdən sonra verilmişdir</div>
     </div>
-    <button class="submit-btn" onclick="getResult()"><i class="fas fa-chart-line"></i>Nəticələri Göstər</button>
-    <div class="loader-container" id="loader"><div class="loader"></div><p>Yüklənir...</p></div>
+
+    <button class="submit-btn" onclick="getResult()"><i class="fas fa-chart-line"></i> Nəticələri Göstər</button>
+
+    <div class="loader-container" id="loader">
+      <div class="loader"></div>
+      <p>Yüklənir...</p>
+    </div>
+
     <div class="error-container" id="error">
       <div class="error-icon"><i class="fas fa-exclamation-triangle"></i></div>
       <h3 id="error-title">Xəta</h3>
       <p id="error-message"></p>
     </div>
+
     <div class="result-container" id="result">
       <div class="results-grid" id="results-grid"></div>
+
       <div class="stats-container">
-        <div class="stats-title"><i class="fas fa-chart-pie"></i>Statistikalar</div>
+        <div class="stats-title"><i class="fas fa-chart-pie"></i> Statistikalar</div>
         <div class="stats-grid">
           <div class="stat-item"><div class="stat-value correct" id="correct-count">0</div><div class="stat-label">Düzgün cavab</div></div>
           <div class="stat-item"><div class="stat-value wrong" id="wrong-count">0</div><div class="stat-label">Səhv cavab</div></div>
-          <div class="stat-item"><div class="stat-value pending" id="pending-count">0</div><div class="stat-label">Nəticə hələ yoxdur</div></div>
+          <div class="stat-item"><div class="stat-value pending" id="pending-count">0</div><div class="stat-label">Hələ nəticə yoxdu</div></div>
         </div>
       </div>
+
       <div class="final-score">
         <div class="final-score-label">Ümumi bal</div>
         <div class="final-score-value" id="final-score">0</div>
@@ -109,11 +121,12 @@ body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#f5f7fa 0%
       </div>
     </div>
   </div>
-  <div class="footer"><p><i class="fas fa-mobile-alt"></i>Bütün cihazlarla uyğundur</p></div>
+
+  <div class="footer"><p><i class="fas fa-mobile-alt"></i> Bütün cihazlarla uyğundur</p></div>
 </div>
 
 <script>
-// Test məlumatları
+// Пример данных для теста
 const testData = {
   "123456": Array(85).fill("DÜZGÜN").map((v,i)=>i<60?"DÜZGÜN":"SƏHV"),
   "654321": Array(85).fill("DÜZGÜN").map((v,i)=>i<40?"DÜZGÜN":"SƏHV")
@@ -131,7 +144,7 @@ const wrongCountEl = document.getElementById('wrong-count');
 const pendingCountEl = document.getElementById('pending-count');
 const finalScoreEl = document.getElementById('final-score');
 
-function getResult(){
+function getResult() {
   const code = codeInput.value.trim();
   clearPreviousResult();
   if(!code){
@@ -152,27 +165,16 @@ function clearPreviousResult(){
   resultsGrid.innerHTML="";
 }
 
-function showLoader(){
-  loader.style.display="flex";
-}
-
-function hideLoader(){
-  loader.style.display="none";
-}
-
-function showError(title,message){
-  errorTitle.textContent=title;
-  errorMessage.textContent=message;
-  errorContainer.style.display="block";
-}
+function showLoader(){loader.style.display="flex";}
+function hideLoader(){loader.style.display="none";}
+function showError(title,message){errorTitle.textContent=title; errorMessage.textContent=message; errorContainer.style.display="block";}
 
 function processResult(code){
   const results = testData[code];
   if(!results){
-    showError("Nəticə mövcud deyil","Daxil etdiyiniz kodla hələ nəticə yoxdu. Zəhmət olmasa, müəllim tərəfindən yoxlanmasını gözləyin.");
+    showError("Nəticə mövcud deyil","Hələ nəticə yoxdu. Zəhmət olmasa müəllim tərəfindən yoxlanmasını gözləyin.");
     return;
   }
-
   let correct=0, wrong=0, pending=0;
   results.forEach((res,i)=>{
     const item=document.createElement("div");
@@ -182,7 +184,6 @@ function processResult(code){
     item.innerHTML=`<div class="question-number">${i+1}</div><div class="result-icon">${res==="DÜZGÜN"?"✓":"✗"}</div>`;
     resultsGrid.appendChild(item);
   });
-
   correctCountEl.textContent=correct;
   wrongCountEl.textContent=wrong;
   pendingCountEl.textContent=pending;
